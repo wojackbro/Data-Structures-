@@ -1,0 +1,152 @@
+
+##########   Question-1    ##########
+def shiftLeft(source, k):
+    for i in range(0, len(source), 1):
+        c = i-k
+        if c < 0:
+            source[i] = 0
+        else:
+            source[i-k] = source[i]
+            source[i] = 0
+    print(source)
+
+##########    Question-2    ##########
+def rotateLeft(source, k):
+    for i in range(0, k, 1):
+        temp = source[len(source)-1]
+        for j in range(len(source)-1, 0, -1):
+            source[j] = source[j-1]
+        source[0] = temp
+    print(source)
+
+##########    Question-3    ##########
+def remove(source,size, idx):
+    source[idx]=0
+    for i in range(idx,size-1,1):
+        source[i]=source[i+1]
+    source[size-1]=0
+    print(source)
+
+##########    Question-4    ##########
+def removeAll(source,size,element):
+    for i in range(0,size,1):
+        if source[i]==element:
+            source[i]=0
+            j=i+1
+            while j<=size-1:
+                if source[j]!=element:
+                    source[i]=source[j]
+                    source[j]=element
+                    break
+                j=j+1
+    print(source)
+##########    Question-5    ##########
+def splitArr (source):
+    suma=0
+    sumb=0
+    ans=False
+    for i in range(0,len(source),1):
+        suma = suma + source[i]
+        for j in range(i+1,len(source), 1):
+            sumb=sumb+source[j]
+        if suma==sumb:
+            ans=True
+            break
+        else:
+            sumb=0
+    print(ans)
+##########    Question-6    ##########
+def arrSer (n):
+    leng = n*n
+    arr=[0]*leng
+    count=n-1
+    for i in range(len(arr)-1,0,-n):
+        j = 0
+        while j<=count:
+            arr[i+(j*-1)]= j+1
+            j+=1
+        count-=1
+    print(arr)
+##########    Question-7    ##########
+def bunchCount(source):
+    maxim=0
+    temp=1
+    for i in range(0,len(source)-1,1):
+        if source[i]==source[i+1]:
+            temp+=1
+        if temp>maxim:
+            if source[i]!=source[i+1] or i==len(source)-2:
+                maxim=temp
+                temp=1
+    print(maxim)
+##########    Question-8    ##########
+def repsv2 (source):
+    tf = False
+    diction = {}
+    for i in range(0,len(source),1):
+        count=1
+        j=i+1
+        if source[i] in diction:
+            pass
+        else:
+            while j<len(source):
+                if source[i]==source[j]:
+                    count+=1
+                j+=1
+            diction[source[i]]=count
+    keys=[0] * len(diction)
+    n=0
+    for x in diction:
+        keys[n]=x
+        n+=1
+    for i in range(0,len(keys),1):
+        l=i+1
+        while l < len(keys):
+            if diction[keys[i]]==diction[keys[l]] and diction[keys[i]]!=1:
+                tf=True
+                break
+            else: 
+                l+=1
+    print(tf)
+
+##########    Question-9 (circular array 1)    ##########
+            
+def palindrome(source, start,size):
+    index = start
+    temp=[0]*size
+    for i in range(0,size,1):
+        temp[i]=source[index]
+        index=(index+1)%len(source)
+    
+    palin = False
+    endo= size//2
+    if endo%2==1:
+        endo-=1
+    j=-1
+    for i in range(0,endo,1):
+        if temp[i]!=temp[j]:
+            palin=False
+            break
+        else: 
+            palin=True
+        j-=1
+    print(palin)
+
+##########    Question-10 (Circular Array 2)    ##########
+def intersection(arr_1,start_1,size_1,arr_2,start_2,size_2):
+    linarr_1=[0]*size_1
+    linarr_2=[0]*size_2
+    index=start_1
+    index2=start_2
+    for i in range(0,size_1,1):
+        linarr_1[i]=arr_1[index]
+        index=(index+1)%len(arr_1)
+    for i in range(0,size_2,1):
+        linarr_2[i]=arr_2[index2]
+        index2=(index2+1)%len(arr_2)
+    temp=[]
+    for i in range(0,len(linarr_1),1):
+        if linarr_1[i] in linarr_2:
+            temp[len(temp):]=[linarr_1[i]]
+    print(temp)
+
