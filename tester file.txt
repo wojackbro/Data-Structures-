@@ -1,0 +1,37 @@
+#####    TESTER CLASS $$$$ ##########################
+
+#####################################################################################################################
+
+## TASK 1
+#   arr=[5,9,8,2,3,7,13,2,0,1]
+#   r=len(arr)-1
+#   Recursive_SelectionSort(arr,0,r)  
+#   print(arr)
+
+## TASK 2
+#arr=[5,4,3,7,1,12,2]
+#InsertionSort(arr,len(arr)-1)
+#print(arr)
+
+## TASK 3
+#L=MyList([3,9,1,15,0,5,2,7,4,6])
+#L.BubbleSort()
+
+## TASK 4
+#L=MyList([3,9,1,15,0,5,2,7,4,6])
+#L.SelectionSort()
+
+## TASK 5
+#L1=DoublyList([23,22,8,3,5,9,4,7,12,1,0])
+#L1.InsertionSort()
+
+#TASK 6
+#arr=[1,2,3,4,5,6,7]
+#r=len(arr)-1
+#key=3
+#print(Recursive_BSearch(arr,0,r,key))
+
+#TASK 7
+#n=6
+#Arr=[0]*(n+1)
+#print(Fib_Memoization(n))
