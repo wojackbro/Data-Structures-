@@ -1,0 +1,86 @@
+
+
+
+#TASK 01
+
+class KeyIndex:
+    def __init__(self,arr):
+        self.aux=None
+        self.temp=0
+        most_neg=arr[0]
+        for i in arr:   #FindMostNegative
+            if i<most_neg:
+                most_neg=i
+        if most_neg<0:
+            self.temp=most_neg*(-1)
+        i=0
+        while i<len(arr):
+            arr[i]=arr[i]+self.temp
+            i+=1
+        Max=arr[0]      #FindMax
+        for i in arr:
+            if i>Max:
+                Max=i
+        aux=[0]*(Max+1)    #Create Aux array
+        j=0
+        while j<len(arr):       #Populate Aux Array
+            ind=arr[j]
+            aux[ind]+=1
+            j+=1
+        self.aux=aux
+        
+    def search(self,val):
+        if self.aux[self.temp+val]!=0:
+            return True
+        else:
+            return False
+    def sort(self):
+        count=0
+        for i in self.aux:
+            if i!=0:
+                count+=i
+        arr=[0]*count   #Use count to set the size of array
+        j=0
+        i=0
+        while j<len(self.aux):      #populate the array
+            if self.aux[j]==1:
+                arr[i]=j-self.temp
+                i+=1
+                j+=1
+            elif self.aux[j]>1:
+                for k in range(self.aux[j]):
+                    arr[i]=j-self.temp
+                    i+=1
+                j+=1
+            else:
+                j+=1
+        return arr
+
+#TASK 02
+
+def Hashtable(array):
+    vowels=["A","E","I","O","U"]
+    j=0
+    hashtable=[0]*9
+    while j<len(array):
+        consonant_count=0
+        sum_digits=0
+        for i in array[j]:
+            if i not in vowels and ord(i)>=65 and ord(i)<=90:
+                consonant_count+=1
+            elif ord(i)>=48 and ord(i)<=57:
+                sum_digits+=int(i)
+        func=(consonant_count*24+sum_digits)%9
+        if hashtable[func]==0:
+            hashtable[func]=array[j]
+        else:
+            while hashtable[func]!=0:    #LINEAR PROBING
+                func=(func+1)%9
+            hashtable[func]=array[j]
+    
+        j+=1
+    return hashtable
+
+
+
+

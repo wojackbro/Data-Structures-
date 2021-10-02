@@ -1,0 +1,11 @@
+###__________________TESTER CLASS________________ ##
+
+#TASK 01
+#testarr=[-3,0,-5,-8,-8,2,-13,-13,-12,12,1,-2]
+#List1=KeyIndex(testarr)
+#print(List1.search(-12))
+#print(List1.sort())
+
+#TASK 02
+#Hash=Hashtable(['ST1E89B8A32','PQRS3214','NVIDIAGT1030',"HELLOWORLD420"])
+#print(Hash)
