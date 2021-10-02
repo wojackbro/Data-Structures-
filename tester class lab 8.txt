@@ -1,0 +1,60 @@
+root=Node("T")
+root.left = Node("G")
+root.right = Node("V")
+root.left.left = Node("F")
+root.left.right=Node("K")
+root.right.right = Node("J")
+root.left.left.left = Node("H")
+root.left.right.right = Node("X")
+root.left.left.left.left=Node("W")
+root.left.left.left.right=Node("Z")
+
+#For the task 6, we need a new binary tree. Lets create the same binary tree with a different name "root2".
+#  ::::::::::::Our binary tree will look like this below::::::
+
+#               1
+#           /       \  
+#          2          3  
+#         /  \      /   \
+#        4    8     5   6 
+#                  / 
+#                  7
+
+root2=Node(3)
+root2.left = Node(28)
+root2.right = Node(-1)
+root2.left.left = Node(5)
+root2.left.right=Node(8)
+root2.right.left = Node(16)
+root2.right.right = Node(3)
+root2.left.left.left = Node(9)
+root2.left.left.right = Node(15)
+root2.left.right.left=Node(4)
+#######################################################
+
+#task1
+print(height(root))
+print()
+#task2
+print(FindLevel(root,1))
+print()
+#task3
+preorder_print(root)
+print()
+print()
+#task4
+postorder_print(root)
+
+print()
+print()
+#task5
+inorder_print(root)
+print()
+print()
+#task6
+print(check(root,root2))
+print()
+
+#task7
+newTree=Tree_Copy(root)
+postorder_print(newTree)  #This is to check if the postorder printing of copy tree matches with original.
