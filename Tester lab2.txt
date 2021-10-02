@@ -1,0 +1,52 @@
+#-----------__ Tester Class __ ------------------#
+
+#The methods have been invoked accordingly in the order of task no. Remove hastags to test.
+
+#------------------------Task1---------------------
+#EmptyNode= Node(None,None)   # A Node object created from Node class
+#EmptyList= MyList()          #Empty object created from MyList class
+
+# -----------------------Task2--------------------
+
+#L1=MyList([1,2,5,3,8])   #Constructor
+
+
+#L1.showList()             #Showlist
+
+
+#L1.isEmpty()              #IsEmpty
+
+
+#L1.clear()                #Clear
+
+
+#newElement=Node(4,None) 
+#L1.insert_in_tail(newElement)        #Insert at end. NewElem Node has been created and then this is put in insert function
+
+
+#L1.insert(4,3)               #Insert at a given index
+
+
+#L1.remove(2)                #Removes the element from a list that contains the deleteKey and returns the deleted key value.
+
+
+
+# -----------------------Task3--------------
+
+
+#L1.Evenlist()       # find even numbers that are present in the list and output another list
+
+
+#L1.CheckElement(8)   #element is in the list or not.
+
+
+#L1.Reverse()        #Reverse the list using iterative methods.
+
+
+#L1.Sort()          # An inplace approach to sort the list using bubblesorting
+
+
+#L1.SumValue()       #Outputs sum of elements
+
+
+#L1.rotate("left",2)   #rotation function for k times rotations either left or right

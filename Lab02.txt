@@ -1,0 +1,198 @@
+
+
+class Node:                           
+    def __init__(self,data,n):
+        self.data=data
+        self.next=n
+    
+class MyList:                            
+    def __init__(self,arr=None):         #Constructor
+        self.head=None
+        tail=None
+        if type(arr)==list:
+            index=0
+            while index<len(arr):
+                new=Node(arr[index],None)
+                if self.head==None:
+                    self.head=new
+                    tail=new
+                else:
+                    tail.next=new
+                    tail=new
+                index+=1
+        elif type(arr)==None:
+            return print("Array cannot be empty")
+         
+    
+    def showList(self):
+        if self.head!=None:
+            i=self.head
+            while i!=None:
+                print(i.data, end=" ")
+                i=i.next
+        else:
+            return "Empty List"
+    def isEmpty(self):
+        if self.head==None:
+            return print(True)
+        else:
+            return print(False)
+    def clear(self):
+        if self.head==None:
+            return print("List is already empty")
+        i=self.head
+        while i!=None:
+            i.data=None
+            i=i.next
+    def insert_in_tail(self,elem_node):                   #Insert at the tail
+        i=self.head
+        while True:
+            if i.data==elem_node.data:
+                return print("Element already in the linked-list")
+            else:
+                if i.next==None:
+                    i.next=elem_node
+                    break
+        
+            i=i.next
+        return self.showList()
+            
+    def insert(self, newElement, index):                #Insert  anywhere
+        if self.head==None:
+            return print("PreCondition: List cannot be empty")
+        start=self.head
+        count=0
+        while start!=None:
+            if start.data==newElement:
+                return print("Already in the list")
+            count+=1
+            start=start.next
+        if index<0 or index>count:
+            return print("Invalid Index value inserted")
+        if index==0:
+            new=Node(newElement,None)
+            new.next=self.head
+            self.head=new
+            return self.showList()
+        else:
+            i=self.head
+            count=0
+            while i!=None:
+                if count==index-1:
+                    new=Node(newElement,None)
+                    new.next=i.next
+                    i.next=new
+                    break
+                count+=1
+                i=i.next
+            return self.showList()
+                
+    def remove(self, deletekey):
+        if self.head==None:
+            return print("PreCondition: List cannot be empty")
+        flag=False
+        if self.head.data==deletekey:
+            self.head=self.head.next
+            self.showList()
+            return deletekey
+        i=self.head
+        while i.next!=None:
+            if i.next.data==deletekey:
+                flag=True                        #remove deletekey
+                i.next=i.next.next
+                break
+            i=i.next
+        if flag==False:
+            return print("Delete key not found")
+        self.showList()
+        return deletekey
+    
+
+    def CheckElement(self,elem):
+        i=self.head
+        while i!=None:
+            if i.data==elem:
+                return print(True)
+            i=i.next
+        return print(False)
+    
+    def SumValue(self):
+        i=self.head
+        Sum=0
+        while i!=None:
+            Sum+=i.data
+            i=i.next
+        return print(Sum)
+        
+    def rotate(self,Type,k):
+        if Type=="left":
+            while k>0:
+                i=self.head
+                while i!=None:
+                    tail=i
+                    i=i.next
+                new=Node(self.head.data, None)
+                self.head=self.head.next
+                tail.next=new
+                k-=1
+        
+            return self.showList()
+        elif Type=="right":
+            while k>0:
+                i=self.head
+                while i!=None:
+                    tail=i
+                    i=i.next
+                i=self.head
+                while i!=None:
+                    if i.next==tail:
+                        new=Node(tail.data,None)
+                        new.next=self.head
+                        self.head=new
+                        i.next=None
+                    i=i.next
+                k-=1
+            return self.showList()
+        else:
+            return print("Wrong Input")
+    
+    def Evenlist(self):
+        newlist=MyList("DummyList")
+        i=self.head
+        while i!=None:
+            if i.data%2==0:
+                if newlist.head==None:
+                    new=Node(i.data,None)
+                    tail=new
+                    newlist.head=new
+                else:
+                    new=Node(i.data,None)
+                    tail.next=new
+                    tail=new
+            i=i.next
+        return newlist.showList()
+    
+    def Reverse(self):
+        head=self.head
+        prev=None
+        while head!=None:
+            temp=head.next
+            head.next=prev
+            prev=head
+            head=temp
+        self.head=prev
+        return self.showList()
+    
+    def Sort(self):
+        i=self.head
+        while i!=None:
+            j=i.next
+            while j!=None:
+                if i.data>j.data:
+                    temp=i.data
+                    i.data=j.data
+                    j.data=temp
+                j=j.next
+            i=i.next
+        return self.showList()
+    
