@@ -1,0 +1,36 @@
+############################################################################
+########################   GIVE INPUT HERE   ###############################
+
+# please uncommnet the functions below to run the code, all of them print the output by
+# default, so no need to print anything.
+
+
+#please run one function at a time since the variable source has been used for multiple functions
+
+
+
+
+source=[20,20,0,10,20,30]
+#shiftLeft(source, k)
+
+#rotateLeft(source, 3)
+
+
+#remove(source,size, idx)
+
+#removeAll(source,size,element)
+
+#splitArr (source)
+
+#arrSer 👎   
+
+#bunchCount(source)
+
+#repsv2 (source)
+
+#palindrome(source, 3,5)
+
+#arr_1= [40,50,0,0,0,10,20,30]
+#arr_2 = [10,20,5,0,0,0,0,0,5,40,15,25]
+
+#intersection(arr_1,start_1,size_1,arr_2,start_2,size_2)
