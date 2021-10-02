@@ -1,0 +1,28 @@
+#-----------__ Tester Class __ ------------------#
+
+#The methods have been invoked accordingly in the order of task no. Remove hastags to test.
+
+#------------------------Task1--------------------
+
+#New Node=Node( None, None, None)       #A Node class with three fields
+
+# L1= DoublyList(None)                  # Doubly Circular linkedList class
+
+# -----------------------Task2--------------------
+
+L1=DoublyList([1,2,3,4])       #L1 created using the constructor
+L1.InsertBefore(3,50)
+
+#L1.showList()             #Showlist
+
+
+#NewNode= Node(6,None,None)
+#L1.insert_at_end(NewNode)       #Insert at end. NewElem Node has been created and then this is put in insert function
+
+
+#L1.insert(6,5)                   #Insert any element in any index
+
+#L1.remove(3)                      #Remove the node of the nth index
+
+
+#L1.removeKey(2)                #Remove the node that has the key value passed into the function and return deleted key

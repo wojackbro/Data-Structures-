@@ -1,0 +1,122 @@
+class Node:
+    def __init__(self,elem, nxt, prev):
+        self.data=elem
+        self.next=nxt
+        self.prev=prev
+class DoublyList:                           
+    def __init__(self,a=None):                #Constructor 
+        self.head=Node(None,None,None)
+        if a==None:
+            return print("List cannot be empty")
+        self.head.next=self.head
+        self.head.prev=self.head
+        i=0
+        current=self.head
+        while i<len(a):
+            n=Node(a[i],None,None)
+            current.next=n
+            n.prev=current
+            n.next=self.head
+            self.head.prev=n
+            current=current.next
+            i+=1
+
+    def showList(self):
+        i=self.head.next
+        while i!=self.head:
+            print(i.data, end=" ")
+            i=i.next
+    
+    def insert_at_end(self, newElem):
+        self.head.prev.next=newElem
+        newElem.prev=self.head.prev
+        self.head.prev=newElem
+        newElem.next=self.head
+        return self.showList()
+    
+    def NodeAt(self,index):
+        i=self.head.next
+        count=0
+        while i!=self.head:
+            if count==index:
+                break
+            count+=1
+            i=i.next
+        return i
+    def NodeAtValue(self,key):
+        i=self.head.next
+        while i!=self.head:
+            if i.data==key:
+                return i
+            i=i.next
+    
+    def Length(self):
+        i=self.head.next
+        count=0
+        while i!= self.head:
+            count+=1
+            i=i.next
+        return count
+    def Search(self,elem):
+        i=self.head.next
+        while i !=self.head:
+            if i.data==elem:
+                return True
+            i=i.next
+        return False
+        
+    def insert(self, elem, index):
+        if self.head.next==None:
+            return print("List cannot be empty.")
+        length=self.Length()
+        if index<0 or index>length:
+            return print("Invalid index value inserted")
+        if self.Search(elem)==True:
+            return print("Element already in the list")
+        place=self.NodeAt(index-1)
+        new=Node(elem,None,None)
+        new.next=place.next
+        new.prev=place
+        place.next.prev=new
+        place.next=new
+        return self.showList()
+        
+    def remove(self, index):
+        if self.head.next==None:
+            return print("List cannot be empty.")
+        length=self.Length()
+        if index<0 or index>length:
+            return print("Invalid index value inserted")
+        # Node previous to the target node
+        Prev=self.NodeAt(index-1)
+        #targetNode
+        Target=self.NodeAt(index)
+        Prev.next=Prev.next.next
+        Prev.next.prev=Prev
+        Target.next=None
+        Target.prev=None
+        return self.showList()
+    def removeKey(self,key):
+        if self.head.next==None:
+            return print("List cannot be empty.")
+        address=self.NodeAtValue(key)
+        before, after=address.prev, address.next
+        before.next=after
+        after.prev=before
+        address.next, address.prev =None, None
+        self.showList()
+        return print("\nRemoved Key:",key)
+    
+    def InsertBefore(self,elem,newelem):
+        x=self.head
+        while x.next!=None:
+            if x.next.data==elem:
+                new=Node(newelem,None,None)
+                new.next=x.next
+                new.prev=x
+                x.next.prev=new
+                x.next=new
+                break
+            else:
+                x=x.next
+        return self.showList()
