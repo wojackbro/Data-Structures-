@@ -1,0 +1,8 @@
+
+
+Warning:
+
+Labs are checked for plagiarism and marking is strict. If plagiarism crosses 10% that lab work will be given a full 0.
+
+
+I only used python language for the labs :3
