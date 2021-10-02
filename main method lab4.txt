@@ -1,0 +1,124 @@
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TASK 1~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+class Node:
+    def __init__(self,data,nxt):
+        self.data=data
+        self.next=nxt
+class Stack:
+    def __init__(self,a=None):    
+        self.top=None
+        if a!=None:
+            i=0 
+            j=self.top
+            while i<len(a):
+                if self.top==None:
+                    self.top=Node(a[i],None)
+                    j=self.top
+                else:
+                    new=Node(a[i],None)
+                    new.next=j
+                    self.top=new
+                    j=new
+                i+=1 
+    def peek(self):
+        if self.top==None:
+            print("Stack underflow")
+            return None
+        return print(self.top.data)
+    def push(self,k):
+        new=Node(k,self.top)
+        self.top=new
+        return 
+    def pop(self):
+        if self.top==None:
+            return 
+        temp=self.top.data
+        self.top=self.top.next
+        return temp
+    def Parenthesis_Balancing(self,ab):
+        newstack=Stack()
+        if self.top!=None:
+            return "Please emply the stack first to check."
+        lst1=["(","[","{"]
+        lst2=[")","]","}"]
+        lst3=["()","[]","{}"]
+        i=0
+        count=0
+        while i<len(ab):
+            count+=1
+            if ab[i] in lst1:
+                self.push(ab[i])
+                newstack.push(i)
+
+            elif ab[i] in lst2:
+                if self.top==None: 
+                    return print(f"Error at character {i+1}, '{ab[i]}'- not opened.")
+                j=self.pop()
+                k=newstack.pop()
+                if j+ab[i] not in lst3:
+                    return print(f"Error at character #{k+1}, '{j}'- not closed.")
+            i+=1
+        if self.top!=None:
+            j=self.pop()
+            k=newstack.pop()
+            return print(f"Error at character #{k+1}, '{j}'- not closed.") #Stack not empty
+        return print("The expression is balanced")   #Stack empty and all brackets match
+    
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~TASK 2~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+class ArrayStack:
+    def __init__(self,size=100):
+        self.stack=size*[0]
+        self.top=-1
+        return
+    def peek(self):
+        return print(self.stack[self.top])
+    def pop(self):
+        if self.top==-1:
+            return print("Stack underflow")
+        temp=self.stack[self.top]
+        self.stack=self.stack[:-1]
+        self.top-=1
+        return temp
+    def push(self,k):
+        if self.top==len(self.stack)-1:
+            return print("Stack overflow")
+        self.stack[self.top+1]=k
+        self.top+=1
+        return
+    def display(self):
+        i=self.top
+        while i>=0:
+            print(self.stack[i])
+            i-=1
+    def Parenthesis_Balancing(self,ab):
+        newstack=ArrayStack()
+        if self.top!=-1:
+            return "Please emply the stack first to check."
+        lst1=["(","[","{"]
+        lst2=[")","]","}"]
+        lst3=["()","[]","{}"]
+        i=0
+        count=0
+        while i<len(ab):
+            count+=1
+            if ab[i] in lst1:
+                self.push(ab[i])
+                newstack.push(i)
+
+            elif ab[i] in lst2:
+                if self.top==-1: 
+                    return print(f"Error at character {i+1}, '{ab[i]}'- not opened.")
+                j=self.pop()
+                k=newstack.pop()
+                if j+ab[i] not in lst3:
+                    return print(f"Error at character #{k+1}, '{j}'- not closed.")
+            i+=1
+        if self.top!=-1:
+            j=self.pop()
+            k=newstack.pop()
+            return print(f"Error at character #{k+1}, '{j}'- not closed.") #Stack not empty
+        return print("The expression is balanced")   #Stack empty and all brackets match
+    

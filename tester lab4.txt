@@ -1,0 +1,21 @@
+#~~~~~~~~~~~~~~~~~ TASK 1 TESTER ~~~~~~~~~~~~~~~~~~~~~~~~                    
+                
+#L1=Stack()
+
+
+#L1.Parenthesis_Balancing("1+2*(3/4)")
+#L1.Parenthesis_Balancing("1+2*[3*3+{4–5(6(7/8/9)+10)–11+(12*8)]+14")
+#L1.Parenthesis_Balancing("1+2*[3*3+{4–5(6(7/8/9)+10)}–11+(12*8)/{13+13}]+14")         
+#L1.Parenthesis_Balancing("1+2]*[3*3+{4–5(6(7/8/9)+10)–11+(12*8)]+14")
+
+
+#~~~~~~~~~~~~~~~~~ TASK 2 TESTER ~~~~~~~~~~~~~~~~~~~~~~~~        
+
+#L1=ArrayStack()
+
+# PLEASE NOTE: PLEASE MAKE SURE THE INPUT STRING LENGTH IS LESS THAN THE FIXED SIZE OF ARRAY STACK. IF NOT 
+# THEN PLEASE INCREASE THE ARRAY STACK SIZE (ARRAY STACK CONSTRUCTOR)
+#L1.Parenthesis_Balancing("1+2*(3/4)")
+#L1.Parenthesis_Balancing("1+2*[3*3+{4–5(6(7/8/9)+10)–11+(12*8)]+14")
+#L1.Parenthesis_Balancing("1+2*[3*3+{4–5(6(7/8/9)+10)}–11+(12*8)/{13+13}]+14")         
+#L1.Parenthesis_Balancing("1+2]*[3*3+{4–5(6(7/8/9)+10)–11+(12*8)]+14") 
