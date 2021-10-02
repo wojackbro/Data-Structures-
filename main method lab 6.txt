@@ -1,0 +1,237 @@
+
+
+#______________Task_1_____________________
+
+def Recursive_SelectionSort(arr,l,r):
+    def mainmethod(arr,l,r): #
+        if l==r:
+            return
+        else:
+            min_indx=SearchMin_index(arr,l,r,l)
+            swap(arr,l,min_indx)
+            Recursive_SelectionSort(arr,l+1,r)
+
+    def swap(arr,l,k):
+        temp=arr[l]
+        arr[l]=arr[k]
+        arr[k]=temp
+        return
+
+    def SearchMin_index(arr,l,r,Min):
+        if l>r:
+            return Min
+        else:
+            if arr[l]<arr[Min]:
+                Min=l
+            return SearchMin_index(arr,l+1,r,Min)
+            
+    mainmethod(arr,l,r) #Call mainmethod
+    
+    
+    
+    
+#______________Task_2_____________________
+
+def InsertionSort(arr,r):
+    if r==0:
+        return
+    else:
+        InsertionSort(arr,r-1)
+        temp=arr[r]
+        k=r-1
+        def shifting(k,temp,arr):
+            if k<0 or arr[k]<temp:
+                arr[k+1]=temp
+                return 
+            else:
+                if arr[k]>temp:
+                    arr[k+1]=arr[k]
+                shifting(k-1,temp,arr)    
+        shifting(k,temp,arr)
+
+
+#______________Task_3_____________________
+
+class Node:                           
+    def __init__(self,data,n):
+        self.data=data
+        self.next=n
+    
+class MyList:                            
+    def __init__(self,arr=None):         #Constructor
+        self.head=None
+        tail=None
+        if type(arr)==list:
+            index=0
+            while index<len(arr):
+                new=Node(arr[index],None)
+                if self.head==None:
+                    self.head=new
+                    tail=new
+                else:
+                    tail.next=new
+                    tail=new
+                index+=1
+        elif type(arr)==None:
+            return print("Array cannot be empty")
+         
+    
+    def showList(self):
+        if self.head!=None:
+            i=self.head
+            while i!=None:
+                print(i.data, end=" ")
+                i=i.next
+        else:
+            return "Empty List"
+
+    def BubbleSort(self):
+            i=self.head
+            while i!=None:
+                curr=self.head
+                while curr.next!=None:
+                    if curr.data>curr.next.data:
+                        temp=curr.data
+                        curr.data=curr.next.data
+                        curr.next.data=temp
+                    curr=curr.next
+
+                i=i.next
+            return self.showList()
+    
+#______________Task_4_____________________
+
+class Node:                           
+    def __init__(self,data,n):
+        self.data=data
+        self.next=n
+    
+class MyList:                            
+    def __init__(self,arr=None):         #Constructor
+        self.head=None
+        tail=None
+        if type(arr)==list:
+            index=0
+            while index<len(arr):
+                new=Node(arr[index],None)
+                if self.head==None:
+                    self.head=new
+                    tail=new
+                else:
+                    tail.next=new
+                    tail=new
+                index+=1
+        elif type(arr)==None:
+            return print("Array cannot be empty")
+         
+    
+    def showList(self):
+        if self.head!=None:
+            i=self.head
+            while i!=None:
+                print(i.data, end=" ")
+                i=i.next
+        else:
+            return "Empty List"
+    def SelectionSort(self):
+            curr=self.head
+            while curr!=None:
+                Min=curr
+                newcurr=curr.next
+                while newcurr!=None:
+                    if newcurr.data<Min.data:
+                        Min=newcurr
+                    newcurr=newcurr.next
+                temp=curr.data
+                curr.data=Min.data
+                Min.data=temp
+                curr=curr.next
+            return self.showList()
+
+
+
+#______________Task_5_____________________
+
+class Node:
+    def __init__(self,elem, nxt, prev):
+        self.data=elem
+        self.next=nxt
+        self.prev=prev
+class DoublyList:                                                      
+    def __init__(self,arr=None):         #Constructor
+        if type(arr)==list:
+            self.head=Node(arr[0],None,None)
+            tail=self.head
+            index=1
+            while index<len(arr):
+                new=Node(arr[index],None,None)
+                tail.next=new
+                new.prev=tail
+                tail=new
+                index+=1
+        elif type(arr)==None:
+            return print("Array cannot be empty")
+    def InsertionSort(self):
+        curr=self.head.next
+        while curr!=None:
+            temp=curr.data
+            newcurr=curr.prev
+            newtemp=None
+            while newcurr!=None and newcurr.data>temp:
+                if newcurr.prev==None:
+                    newtemp=newcurr
+                newcurr.next.data=newcurr.data
+                newcurr=newcurr.prev
+            if newcurr==None:
+                newtemp.data=temp
+            else:
+                newcurr.next.data=temp
+            curr=curr.next
+        return self.showList()
+    def showList(self):
+        i=self.head
+        while i!=None:
+            print(i.data, end=" ")
+            i=i.next
+
+
+
+#______________Task_6_____________________
+
+
+def Recursive_BSearch(arr=[],l=0,r=None,key=None):
+    if l>r:
+        return -1    # -1 represents not found
+    mid=(l+r)//2
+    if arr[mid]==key:
+        return mid     #key found at mid and returns that index
+    elif arr[mid]>key:                     #shorten based on whether key >/< mid
+        return Recursive_BSearch(arr,l,mid-1,key)
+    else:
+        return Recursive_BSearch(arr,mid+1,r,key)
+    
+    
+
+
+#______________Task_7_____________________
+
+
+
+def Fib_Memoization(n):
+    if Arr[n]>0:
+        return Arr[n]
+    elif n==0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        Arr[n]=Fib_Memoization(n-1)+Fib_Memoization(n-2)
+        return Arr[n]
+
+
+
+
+
+
+
+
