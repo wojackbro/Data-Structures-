@@ -1,0 +1,190 @@
+
+
+
+
+#______________Task_1(a)_____________________
+
+def factorial(n):
+    if n==0 or n==1:
+        return 1
+    else:
+        return n*factorial(n-1)
+
+
+#______________Task_1(b)_____________________
+
+def Fib(n):
+    if n==0:
+        return 0
+    elif n==1:
+        return 1
+    else:
+        return Fib(n-1)+Fib(n-2)
+
+
+#______________Task_1(c)_____________________
+
+def Recursiveprint(arr, k=0):
+    if k==len(arr):
+        return 
+    else:
+        if k<len(arr):
+            print(arr[k])
+            return Recursiveprint(arr,k+1)
+
+
+
+#______________Task_1(d)_____________________
+
+def PowerN(a,n):
+    if n==0:
+        return 1
+    elif n%2==0:
+        temp=PowerN(a,n/2)
+        return temp*temp
+    else:
+        temp2=PowerN(a, (n-1)/2)
+        return temp2*temp2*a
+
+
+#______________Task_2(a)_____________________
+
+def BinaryConvert(n,res=""):   #Decimal to Binary
+    if n<0:
+        raise AssertionError("Binary number cannot be converted from negative")
+    elif n==0:
+        if res=="":
+            return print(0)
+        print(res[::-1])
+        return 
+    else:
+        res+=str(n%2)
+        return BinaryConvert(n//2,res)
+        
+
+
+
+#______________Task_2(b)_____________________
+class Node:                           
+    def __init__(self,data,n):
+        self.data=data
+        self.next=n
+class MyList:                            
+    def __init__(self,arr=None):         #Constructor
+        self.head=None
+        tail=None
+        if type(arr)==list:
+            index=0
+            while index<len(arr):
+                new=Node(arr[index],None)
+                if self.head==None:
+                    self.head=new
+                    tail=new
+                else:
+                    tail.next=new
+                    tail=new
+                index+=1
+        elif type(arr)==None:
+            return print("Array cannot be empty")
+    def SumRecursion_Linkedlist(self, head):
+        if head==None:
+            return 0
+        else:
+            return head.data+self.SumRecursion_Linkedlist(head.next)
+
+#______________Task_2(c)_____________________
+
+
+class Node:                           
+    def __init__(self,data,n):
+        self.data=data
+        self.next=n
+class MyList:                            
+    def __init__(self,arr=None):         #Constructor
+        self.head=None
+        tail=None
+        if type(arr)==list:
+            index=0
+            while index<len(arr):
+                new=Node(arr[index],None)
+                if self.head==None:
+                    self.head=new
+                    tail=new
+                else:
+                    tail.next=new
+                    tail=new
+                index+=1
+        elif type(arr)==None:
+            return print("Array cannot be empty")
+    def ReversePrint(self,head):
+            if head.next==None:
+                return print(head.data)
+            else:
+                self.ReversePrint(head.next)
+                print(head.data)
+
+#______________Task_3_____________________
+
+def hocBuilder(height):
+    if height<0:
+        return print("Please input a valid number")
+    elif height==0:
+        return 0
+    elif height==1:
+        return 8
+    else:
+        return 5+hocBuilder(height-1)
+
+
+
+
+#______________Task_4(a)_____________________
+
+def LeftPrint(n,Str="",i=1):
+    if i>n:
+        return 
+    else:
+        Str+=str(i)
+        print(Str,end=" \n")
+        LeftPrint(n,Str,i+1)
+        
+
+
+#______________Task_4(b)_____________________
+
+def RightPrint(n,Str="",i=1):
+    if i>n:
+        return 
+    else:
+        Str+=str(i)
+        spaces=(n-i)*" "
+        print(spaces,Str,end=" \n")
+        RightPrint(n,Str,i+1)
+        
+
+
+
+#______________Task_5_____________________
+
+class FinalQ: 
+    def print(self,array,idx): 
+        if(idx<len(array)): 
+            profit = self.calcProfit(array[idx])  
+        return print("Investment: "+str(array[idx])+"; Profit: ",str(profit))
+
+    def calcProfit(self,investment): 
+        if investment<25000:
+            return print("Investment cannot be less than 25,000")
+        elif investment==25000:
+            return 0.0
+        elif investment<=100000:
+            curr_profit=0.045*(investment-25000)
+            return curr_profit+self.calcProfit(25000)
+        else:
+            curr_profit=0.08*(investment-100000)
+            return curr_profit+self.calcProfit(100000)
+            
+  
+
+
+
